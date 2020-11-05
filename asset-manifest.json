@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/silmaril-gram/static/js/main.ac827387.chunk.js",
+    "main.js.map": "/silmaril-gram/static/js/main.ac827387.chunk.js.map",
+    "runtime-main.js": "/silmaril-gram/static/js/runtime-main.a97e7065.js",
+    "runtime-main.js.map": "/silmaril-gram/static/js/runtime-main.a97e7065.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/silmaril-gram/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.2d545e11.chunk.js": "/silmaril-gram/static/js/2.2d545e11.chunk.js",
+    "static/js/2.2d545e11.chunk.js.map": "/silmaril-gram/static/js/2.2d545e11.chunk.js.map",
+    "index.html": "/silmaril-gram/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/silmaril-gram/static/css/2.1a02f21c.chunk.css.map",
+    "static/js/2.2d545e11.chunk.js.LICENSE.txt": "/silmaril-gram/static/js/2.2d545e11.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a97e7065.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.2d545e11.chunk.js",
+    "static/js/main.ac827387.chunk.js"
+  ]
+}
