@@ -2,47 +2,63 @@ import React, { Component } from "react";
 import EmployeeCard from "./components/EmployeeCard";
 import Wrapper from "./components/Wrapper";
 import API from "./utils/API";
+import SearchForm from "./components/SearchForm";
 import Title from "./components/Title";
 
 class App extends Component {
 
   state = {
-    employees: []
+    employees: [],
+    search: "none",
+    sort: "asc"
   };
 
   componentDidMount() {
-    this.fetchEmployees();
-    console.log(this.state.employees)
+    this.fetchEmployees("none",this.state.sort);
   }
 
-  fetchEmployees = () => {
-    API.fetch()
+  fetchEmployees = (value,sort) => {
+    console.log(sort)
+    API.fetch(value,sort)
       .then((res) => {
-        console.log(res);
-        this.setState({ employees: res.data.docs })
+        this.setState({sort:sort, search: value, employees: res.data.docs })
       })
       .catch((err) => console.log(err));
   };
 
-  // removeFriend = id => {
-  //   // Filter this.state.friends for friends with an id not equal to the id
-  //   // being removed
-  //   const friends = this.state.friends.filter(friend => friend.id !== id);
-  //   // Set this.state.friends equal to the new friends array
-  //   this.setState({ friends });
-  // };
+  handleInputChange = event => {
+    let value;
+    const name = event.target.name;
+    console.log(name)
+    if (event.target.value === "") {
+      value = "none"
+    } else {
+      value = event.target.value;
+    };
+    console.log(value);
+    this.fetchEmployees(value);
+  };
+
+  handleFormSubmit = event => {
+    console.log("hi");
+    event.preventDefault();
+    const sort = event.target.name;
+    console.log(sort);
+    this.fetchEmployees(this.state.search,sort)
+  };
 
   // Map over this.state.friends and render a FriendCard component for each
   // friend object
   render() {
     return (
       <Wrapper>
-        <Title>Employee List</Title>
+        <Title>Valinor Employee List</Title>
+        <SearchForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
         {this.state.employees.map(employee => (
           <EmployeeCard
             removeFriend={this.removeFriend}
-            id={employee.id}
-            key={employee.id}
+            id={employee._id}
+            key={employee._id}
             name={employee.name}
             race={employee.race}
             wikiUrl={employee.wikiUrl}

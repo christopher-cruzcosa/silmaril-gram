@@ -5,7 +5,7 @@ function EmployeeCard(props) {
   return (
     <div className="card">
       <div className="img-container">
-        <img alt={props.name} src={props.image} />
+        <img alt={props.name} src={(props.race === "Maiar") ? "/silmaril-gram/maiar.jpg": "/silmaril-gram/elves.jpg"} />
       </div>
       <div className="content">
         <ul>
