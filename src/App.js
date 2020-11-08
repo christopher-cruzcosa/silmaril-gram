@@ -17,6 +17,7 @@ class App extends Component {
     this.fetchEmployees("none",this.state.sort);
   }
 
+  //this function retrieves the api data and then sets state to force a re-render
   fetchEmployees = (value,sort) => {
     console.log(sort)
     API.fetch(value,sort)
@@ -26,6 +27,7 @@ class App extends Component {
       .catch((err) => console.log(err));
   };
 
+  //this function controls what happends when the input field is changed to search for a name
   handleInputChange = event => {
     let value;
     const name = event.target.name;
@@ -39,6 +41,7 @@ class App extends Component {
     this.fetchEmployees(value);
   };
 
+  //this function controls the button click events
   handleFormSubmit = event => {
     console.log("hi");
     event.preventDefault();
